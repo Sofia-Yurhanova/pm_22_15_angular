@@ -1,59 +1,95 @@
-# Pm22Angular
+[//]: # (# Pm22Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+[//]: # ()
+[//]: # (This project was generated using [Angular CLI]&#40;https://github.com/angular/angular-cli&#41; version 19.2.1.)
 
-## Development server
+[//]: # ()
+[//]: # (## Development server)
 
-To start a local development server, run:
+[//]: # ()
+[//]: # (To start a local development server, run:)
 
-```bash
-ng serve
-```
+[//]: # ()
+[//]: # (```bash)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+[//]: # (ng serve)
 
-## Code scaffolding
+[//]: # (```)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+[//]: # ()
+[//]: # (Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.)
 
-```bash
-ng generate component component-name
-```
+[//]: # ()
+[//]: # (## Code scaffolding)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+[//]: # ()
+[//]: # (Angular CLI includes powerful code scaffolding tools. To generate a new component, run:)
 
-```bash
-ng generate --help
-```
+[//]: # ()
+[//]: # (```bash)
 
-## Building
+[//]: # (ng generate component component-name)
 
-To build the project run:
+[//]: # (```)
 
-```bash
-ng build
-```
+[//]: # ()
+[//]: # (For a complete list of available schematics &#40;such as `components`, `directives`, or `pipes`&#41;, run:)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+[//]: # ()
+[//]: # (```bash)
 
-## Running unit tests
+[//]: # (ng generate --help)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+[//]: # (```)
 
-```bash
-ng test
-```
+[//]: # ()
+[//]: # (## Building)
 
-## Running end-to-end tests
+[//]: # ()
+[//]: # (To build the project run:)
 
-For end-to-end (e2e) testing, run:
+[//]: # ()
+[//]: # (```bash)
 
-```bash
-ng e2e
-```
+[//]: # (ng build)
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+[//]: # (```)
 
-## Additional Resources
+[//]: # ()
+[//]: # (This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.)
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+[//]: # ()
+[//]: # (## Running unit tests)
+
+[//]: # ()
+[//]: # (To execute unit tests with the [Karma]&#40;https://karma-runner.github.io&#41; test runner, use the following command:)
+
+[//]: # ()
+[//]: # (```bash)
+
+[//]: # (ng test)
+
+[//]: # (```)
+
+[//]: # ()
+[//]: # (## Running end-to-end tests)
+
+[//]: # ()
+[//]: # (For end-to-end &#40;e2e&#41; testing, run:)
+
+[//]: # ()
+[//]: # (```bash)
+
+[//]: # (ng e2e)
+
+[//]: # (```)
+
+[//]: # ()
+[//]: # (Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.)
+
+[//]: # ()
+[//]: # (## Additional Resources)
+
+[//]: # ()
+[//]: # (For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference]&#40;https://angular.dev/tools/cli&#41; page.)
++ PM 22 VAR 15 Angular Project
