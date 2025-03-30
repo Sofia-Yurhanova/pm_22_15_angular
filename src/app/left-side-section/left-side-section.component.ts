@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import {NgFor, NgIf} from '@angular/common';
+import {ReferenceSectionComponent} from './reference-section/reference-section.component';
+
 
 @Component({
   selector: 'app-left-side-section',
-  // imports: [],
   imports: [
+    ReferenceSectionComponent,
     NgFor,
     NgIf],
   templateUrl: './left-side-section.component.html',

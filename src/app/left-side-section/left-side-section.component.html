@@ -2,12 +2,12 @@
   <!-- Ліва колонка -->
 <!--  <div class="col-5 left-col text-center">-->
 <!--  <div class="left-col">-->
-    <div class="header">
-      <h1 class="name">Jhon</h1>
-      <h1 class="surname"><strong>Parker</strong></h1>
-      <p class="title">UX Designer</p>
-    </div>
-    <div class ="under_header">
+<div class="header">
+  <h1 class="name">Jhon</h1>
+  <h1 class="surname"><strong>Parker</strong></h1>
+  <p class="title">UX Designer</p>
+</div>
+<div class ="under_header">
       <h2 class="subtitle1"><strong> Contact</strong></h2>
 
       <div class="inf1" *ngIf="showContact">
@@ -25,21 +25,29 @@
           <p class="contact2"><strong>{{ edu.degree }}</strong></p>
           {{ edu.institution }}
         </div>
+            </div>
 
-        <div class="contact1"> Year: 2005-2007
-          <p class="contact2"><strong> Degree / Major Name</strong></p>
-          Your College name here</div>                    </div>
-      <h2 class="subtitle1"><strong>Reference</strong></h2>
-      <div class="inf1">
-        <div class="contact1"><strong>Jhon Smith</strong>
-          <p class="contact2"><strong>Company name / Title</strong>
-            <br>Phone: 0123 456 7890</p>
-        </div>
-        <div class="contact1"><strong>Jhon Smith</strong>
-          <p class="contact2"><strong>Company name / Title</strong>
-            <br>Phone: 0123 456 7890</p>
-        </div>
-      </div>
+<!--      <h2 class="subtitle1"><strong>Reference</strong></h2>-->
+<!--      <div class="inf1">-->
+<!--        <div class="contact1"><strong>Jhon Smith</strong>-->
+<!--          <p class="contact2"><strong>Company name / Title</strong>-->
+<!--            <br>Phone: 0123 456 7890</p>-->
+<!--        </div>-->
+<!--        <div class="contact1"><strong>Jhon Smith</strong>-->
+<!--          <p class="contact2"><strong>Company name / Title</strong>-->
+<!--            <br>Phone: 0123 456 7890</p>-->
+<!--        </div>-->
+<!--      </div>-->
+  <app-reference-section
+    [name1]="'Jhon Smith'"
+    [title1]="'Company name / Title'"
+    [phone1]="'0123 456 7890'"
+    [name2]="'Jane Anderson'"
+    [title2]="'Company name / Title'"
+    [phone2]="'0987 654 3210'">
+  </app-reference-section>
+
+
     </div>
 
 
