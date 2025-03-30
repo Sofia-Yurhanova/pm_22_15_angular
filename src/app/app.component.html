@@ -1,7 +1,23 @@
 <!--<h1>Hello, title </h1>
 <p>Congratulations! Your app is running. </p>
 <img src="/pic/IMG.jpg" alt="dog" class="image">-->
-<div class="container-fluid mt-5 text-center">
-  <p>Hi,I'm <span style="font-weight: bold">{{title}}</span>!</p>
-  <img [src]="profile_picture" style="height:60vh; width:auto;" alt="profile photo">
+
+<div class="container">
+  <div class="row resume">
+    <div class="col-5 left-col">
+    <app-left-side-section></app-left-side-section>
+    </div>
+    <div class="col-7" >
+
+      <div class="right-col">
+        <div class="row">
+        <app-photo-and-about></app-photo-and-about>
+        </div>
+        <div class="row">
+          <app-right-side-section></app-right-side-section>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>

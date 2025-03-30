@@ -1,0 +1,62 @@
+$black: #000;
+$white: #ffffff;
+$light-grey: darkslategray;
+$dark-grey: #333;
+$level: #e0e0e0;
+$dark-blue: #071117;
+strong {
+  font-weight: 900;
+}
+@mixin col($wid){
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: $wid;
+}
+@mixin small-text($mar,$fon){
+  margin-top: $mar;
+  font-size: $fon;
+}
+.name, .surname {
+  color: $black;
+  font-size: 100px;
+  font-weight: 400;
+}
+.surname {
+  margin-top: -20px;
+}
+.subtitle3 {
+  color: $black;
+  background-color: $white;
+  line-height: 40px;
+  margin-left: 7%;
+  width: 17%;
+  padding: 0 80px 0 20px;
+  font-size: 35px;
+  font-weight: 700;
+}
+.contact3{
+  color: $white;
+  font-weight: 500;
+  margin-left: 63px;
+  line-height: 140%;
+  @include small-text(30px,26px);
+}
+.imag {
+  //max-width: 100%;
+  //display: block;
+  //margin: 0 auto;
+ // position: relative;
+  width:100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
+.dark_blue{
+  width: auto;
+  height:35%;
+  background-color: $dark-blue;
+  color:$white;
+  padding: 6% 0 7% 0;
+}
