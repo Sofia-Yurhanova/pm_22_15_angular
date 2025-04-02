@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
   standalone: true,
   styleUrl: './right-side-section.component.scss'
 })
-export class RightSideSectionComponent {}
+export class RightSideSectionComponent {
+}

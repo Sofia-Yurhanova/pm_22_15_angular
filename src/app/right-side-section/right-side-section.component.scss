@@ -197,6 +197,20 @@ body {
   background-color: $black;
   transition: width 0.5s ease;
 }
+//.progress-bar {
+//  width: 100%;
+//  background-color: #e0e0e0;
+//  border-radius: 5px;
+//  overflow: hidden;
+//  margin-bottom: 10px;
+//}
+//
+//.progress {
+//  height: 10px;
+//  background-color: #3498db;
+//  width: 0;
+//  transition: width 1.5s ease-in-out;
+//}
 
 .contact5 {
   color: $dark-grey;
@@ -209,3 +223,5 @@ body {
 .description{
   @include small-text(20px,26px);
 }
+
+

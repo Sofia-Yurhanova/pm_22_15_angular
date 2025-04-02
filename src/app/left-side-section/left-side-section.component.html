@@ -8,14 +8,22 @@
   <p class="title">UX Designer</p>
 </div>
 <div class ="under_header">
-      <h2 class="subtitle1"><strong> Contact</strong></h2>
-
+  <div class="contact-container">
+    <div class="contact-left">
+      <h2 class="subtitle1"><strong>Contact</strong></h2>
+    </div>
+    <div class="contact-right">
+      <button class="custom-btn" (click)="toggleContact()">
+        <span *ngIf="!showContact">Show Contact</span>
+        <span *ngIf="showContact">Hide Contact</span>
+      </button>
+    </div>
+  </div>
       <div class="inf1" *ngIf="showContact">
         <p class="contact1"><strong>Phone</strong> <br>+000 123 456 789</p>
         <p class="contact1"><strong>Email</strong> <br>yourname&#64;gmail.com</p>
         <p class="contact1"><strong>Address</strong> <br>Your Street Address<br>Town/City, zip code</p>
       </div>
-      <button (click)="toggleContact()">Toggle Contact</button>
 
       <h2 class="subtitle1"><strong> Education</strong></h2>
       <div class="inf1">
