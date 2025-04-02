@@ -1,4 +1,4 @@
-import { Component ,Input} from '@angular/core';
+import { Component ,Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-reference-section',
@@ -11,7 +11,11 @@ export class ReferenceSectionComponent {
   @Input() name1!: string;
   @Input() title1!: string;
   @Input() phone1!: string;
-  @Input() name2!: string;
-  @Input() title2!: string;
-  @Input() phone2!: string;
+
+  @Output() updateReference = new EventEmitter<{ name: string; title: string; phone: string }>();
+
+  sendUpdatedReference() {
+    this.updateReference.emit({ name: this.name1, title: this.title1, phone: this.phone1 });
+  }
+
 }

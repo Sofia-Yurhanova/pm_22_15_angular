@@ -59,7 +59,7 @@ margin-top: 50%;
   margin-top: $mar;
 }
 .custom-btn {
-  background-color: #3498db;
+  background-color: $light-grey;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -70,6 +70,6 @@ margin-top: 50%;
 }
 
 .custom-btn:hover {
-  background-color: #2980b9;
+  background-color: $light-grey;
 }
 

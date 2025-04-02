@@ -50,11 +50,16 @@
     [name1]="'Jhon Smith'"
     [title1]="'Company name / Title'"
     [phone1]="'0123 456 7890'"
-    [name2]="'Jane Anderson'"
-    [title2]="'Company name / Title'"
-    [phone2]="'0987 654 3210'">
+    (updateReference)="handleUpdatedReference($event)">
+    >
   </app-reference-section>
-
+  <div class="contact1" style="margin-top: -1%">
+    <strong>{{ reference2.name }}</strong>
+    <p class="contact2">
+      <strong>{{ reference2.title }}</strong>
+      <br>Phone: {{ reference2.phone }}
+    </p>
+  </div>
 
     </div>
 

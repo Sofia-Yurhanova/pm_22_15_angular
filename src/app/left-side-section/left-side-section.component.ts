@@ -25,5 +25,16 @@ export class LeftSideSectionComponent {
     { year: '2005-2007', degree: 'Degree / Major Name', institution: 'Your College name here' },
     { year: '2008-2010', degree: 'Degree / Major Name', institution: 'Another College' }
   ];
+
+  //Output
+  reference2 = {
+    name: 'Jane Anderson',
+    title: 'Company name / Title',
+    phone: '0987 654 3210'
+  };
+
+  handleUpdatedReference(data: { name: string; title: string; phone: string }) {
+    this.reference2 = data;
+  }
 }
 
