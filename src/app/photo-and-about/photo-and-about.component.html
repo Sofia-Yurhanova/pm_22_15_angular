@@ -3,8 +3,12 @@
   <img class="imag" src="img/photo_web.jpg" alt="Programer">
 <div class="dark_blue">
   <h2 class="subtitle3"><strong>About</strong></h2>
-  <p class="contact3">I'm Parker, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt
-    ut labore et dolore magna aliqua. Ut<br>enim ad minim veniam, quis nostrud
-    exercitation<br>ullamco laboris nisi ut aliquip ex ea commodo</p>
+<!--  <p class="contact3">I'm Parker, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt-->
+<!--    ut labore et dolore magna aliqua. Ut<br>enim ad minim veniam, quis nostrud-->
+<!--    exercitation<br>ullamco laboris nisi ut aliquip ex ea commodo</p>-->
+  <p class="contact3">{{ aboutText }}</p>
+
+  <textarea [(ngModel)]="newAbout" placeholder="Enter smth about Jhon Parker"></textarea>
+  <button (click)="sendNewText()">Надіслати</button>
 </div>
 
