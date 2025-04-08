@@ -14,12 +14,7 @@ export class PhotoAndAboutComponent implements OnInit{
   newAbout: string = '';
 
   constructor(private resumeService: ResumeService) {}
-  // ngOnInit() {
-  //   this.resumeService.getAbout().subscribe({
-  //     next: (data:any) => this.aboutText = data.body,
-  //     error: (err:any) => console.error(err)
-  //   });
-  // }
+
   ngOnInit() {
     this.resumeService.getAbout().subscribe({
       next: (text: string) => this.aboutText = text,
@@ -44,26 +39,5 @@ export class PhotoAndAboutComponent implements OnInit{
       }
     });
   }
-
-  // sendNewText() {
-  //   if (!this.newAbout.trim()) return;
-  //   this.resumeService.sendAbout(this.newAbout).subscribe({
-  //     next: () => {
-  //       this.aboutText = this.newAbout;
-  //       this.newAbout = '';
-  //     }
-  //   });
-  // }
-
-
-  // ngOnInit() {
-  //   this.ResumeService.getAboutText().subscribe({
-  //     next: (text:any) => this.aboutText = text,
-  //     error: (err:any) => {
-  //       console.error(err);
-  //       this.aboutText = 'Помилка завантаження тексту';
-  //     }
-  //   });
-  // }
 }
 
