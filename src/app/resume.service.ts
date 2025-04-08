@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable ,of} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
-import { map } from 'rxjs/operators';
+import { catchError,map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +12,22 @@ export class ResumeService {
 
   constructor(private http: HttpClient) {}
 
-  getAbout(): Observable<{ body: string }> {
-    return this.http.get<{ body: string }>(this.getUrl);
+  // getAbout(): Observable<{ body: string }> {
+  //   return this.http.get<{ body: string }>(this.getUrl);
+  // }
+  getAbout(): Observable<string> {
+    return this.http.get<{ body: string }>(this.getUrl).pipe(
+      map(res => res.body),
+      catchError(err => {
+        console.error('GET error', err);
+        return of('text not found');      })
+    );
   }
 
   sendAbout(newText: string): Observable<any> {
-    return this.http.post(this.postUrl, { body: newText });
+    return this.http.patch(this.postUrl, { body: newText });
   }
+
   // private apiUrl = 'https://jsonplaceholder.typicode.com/posts/4';
   // private postUrl = 'https://jsonplaceholder.typicode.com/posts';// Замінити на реальну адресу API
   //
