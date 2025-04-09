@@ -1,5 +1,14 @@
 {
   "about": {
-    "body": "Hi! I'm Angular developer."
+    "item": {
+      "item": {
+        "item": {
+          "body": "Hi! I'm Angular developer."
+        },
+        "body": "koko"
+      },
+      "body": "hihi"
+    },
+    "body": "пум пурум пум"
   }
 }
