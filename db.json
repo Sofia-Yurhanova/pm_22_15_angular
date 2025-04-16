@@ -1,14 +1,8 @@
 {
-  "about": {
-    "item": {
-      "item": {
-        "item": {
-          "body": "Hi! I'm Angular developer."
-        },
-        "body": "koko"
-      },
-      "body": "hihi"
-    },
-    "body": "пум пурум пум"
-  }
+  "about": [
+    {
+      "id": "1",
+      "body": "sdvgno"
+    }
+  ]
 }

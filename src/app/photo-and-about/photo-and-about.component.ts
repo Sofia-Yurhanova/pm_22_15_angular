@@ -24,6 +24,19 @@ export class PhotoAndAboutComponent implements OnInit{
       }
     });
   }
+  // ngOnInit() {
+  //   this.resumeService.getAbout().subscribe({
+  //     next: (text: string) => {
+  //       console.log('Завантажено текст:', text);
+  //       this.aboutText = text;
+  //     },
+  //     error: (err: any) => {
+  //       console.error('Помилка GET:', err);
+  //       this.aboutText = 'Error download text';
+  //     }
+  //   });
+  // }
+
 
   sendNewText() {
     if (!this.newAbout.trim()) return;
