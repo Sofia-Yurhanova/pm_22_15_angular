@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import {NgFor, NgIf} from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { NgForm } from '@angular/forms';
+import { ResumeService } from '../resume.service';
 import {ReferenceSectionComponent} from './reference-section/reference-section.component';
 
 
@@ -8,7 +11,8 @@ import {ReferenceSectionComponent} from './reference-section/reference-section.c
   imports: [
     ReferenceSectionComponent,
     NgFor,
-    NgIf],
+    NgIf,
+    FormsModule ],
   templateUrl: './left-side-section.component.html',
   standalone: true,
   styleUrl: './left-side-section.component.scss'
@@ -35,6 +39,24 @@ export class LeftSideSectionComponent {
 
   handleUpdatedReference(data: { name: string; title: string; phone: string }) {
     this.reference2 = data;
+  }
+
+//NgForm
+  constructor(private resumeService: ResumeService) {}
+
+
+  onSubmit(form: NgForm) {
+    if (form.valid) {
+      this.resumeService.sendContact(form.value).subscribe({
+        next: () => {
+          alert('Дані надіслано успішно');
+          form.resetForm();
+        },
+        error: () => {
+          alert('Помилка при надсиланні');
+        }
+      });
+    }
   }
 }
 

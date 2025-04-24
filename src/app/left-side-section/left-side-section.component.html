@@ -20,9 +20,38 @@
     </div>
   </div>
       <div class="inf1" *ngIf="showContact">
-        <p class="contact1"><strong>Phone</strong> <br>+000 123 456 789</p>
-        <p class="contact1"><strong>Email</strong> <br>yourname&#64;gmail.com</p>
-        <p class="contact1"><strong>Address</strong> <br>Your Street Address<br>Town/City, zip code</p>
+
+<!--        <p class="contact1"><strong>Phone</strong> <br>+000 123 456 789</p>-->
+<!--        <p class="contact1"><strong>Email</strong> <br>yourname&#64;gmail.com</p>-->
+<!--        <p class="contact1"><strong>Address</strong> <br>Your Street Address<br>Town/City, zip code</p>-->
+<!--     -->
+        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
+          <label class="contact1">Phone:</label>
+          <input name="phone" ngModel required minlength="10" pattern="^[0-9]*$" #phone="ngModel">
+          <div *ngIf="phone.invalid && phone.touched">
+            <small *ngIf="phone.errors?.['required']">Phone is required</small>
+            <small *ngIf="phone.errors?.['minlength']">Minimum 10 digits</small>
+            <small *ngIf="phone.errors?.['pattern']">Only numbers allowed</small>
+          </div>
+
+          <label class="contact1">Email:</label>
+          <input type="email" name="email" ngModel required email #email="ngModel">
+          <div *ngIf="email.invalid && email.touched">
+            <small *ngIf="email.errors?.['required']">Email is required</small>
+            <small *ngIf="email.errors?.['email']">Invalid email format</small>
+          </div>
+
+          <label class="contact1">Address:</label>
+          <textarea name="address" ngModel required minlength="5" #address="ngModel"></textarea>
+          <div *ngIf="address.invalid && address.touched">
+            <small *ngIf="address.errors?.['required']">Address is required</small>
+            <small *ngIf="address.errors?.['minlength']">Minimum 5 characters</small>
+          </div>
+
+          <button type="submit" [disabled]="contactForm.invalid">Send</button>
+        </form>
+
+
       </div>
 
       <h2 class="subtitle1"><strong> Education</strong></h2>

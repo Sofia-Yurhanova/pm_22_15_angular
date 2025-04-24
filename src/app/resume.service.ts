@@ -25,4 +25,13 @@ export class ResumeService {
   sendAbout(newText: string): Observable<any> {
     return this.http.put(this.postUrl, { id: 1, body: newText });
   }
+
+  sendContact(data: { phone: string; email: string; address: string }) {
+    return this.http.post('http://localhost:3000/contacts', data);
+  }
+
+  getContactInfo(): Observable<any> {
+    return this.http.get('http://localhost:3000/contact'); // заміни на свою URL
+  }
+
 }
