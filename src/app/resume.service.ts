@@ -30,8 +30,12 @@ export class ResumeService {
     return this.http.post('http://localhost:3000/contacts', data);
   }
 
-  getContactInfo(): Observable<any> {
-    return this.http.get('http://localhost:3000/contact'); // заміни на свою URL
+  getContactInfo(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:3000/contacts');
+  }
+
+  deleteContact(id: number): Observable<any> {
+    return this.http.delete(`http://localhost:3000/contacts/${id}`);
   }
 
 }

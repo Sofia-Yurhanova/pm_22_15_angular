@@ -37,13 +37,23 @@ export class LeftSideSectionComponent {
     phone: '0987 654 3210'
   };
 
+  contacts: any[] = [];
+
   handleUpdatedReference(data: { name: string; title: string; phone: string }) {
     this.reference2 = data;
   }
 
 //NgForm
-  constructor(private resumeService: ResumeService) {}
+  constructor(private resumeService: ResumeService) {
+    this.loadContacts();
+  }
 
+
+  loadContacts() {
+    this.resumeService.getContactInfo().subscribe(data => {
+      this.contacts = data;
+    });
+  }
 
   onSubmit(form: NgForm) {
     if (form.valid) {
@@ -51,12 +61,19 @@ export class LeftSideSectionComponent {
         next: () => {
           alert('Дані надіслано успішно');
           form.resetForm();
+          this.loadContacts();
         },
         error: () => {
           alert('Помилка при надсиланні');
         }
       });
     }
+  }
+
+  deleteContact(id: number) {
+    this.resumeService.deleteContact(id).subscribe(() => {
+      this.contacts = this.contacts.filter(c => c.id !== id);
+    });
   }
 }
 
