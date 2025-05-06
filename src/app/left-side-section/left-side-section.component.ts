@@ -1,23 +1,33 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import {NgFor, NgIf} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { ResumeService } from '../resume.service';
 import {ReferenceSectionComponent} from './reference-section/reference-section.component';
-
+import { OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { RegisterComponent } from '../auth/register/register.component';
+import { CommonModule } from '@angular/common';
+import { LoginComponent } from '../auth/login.component';
 
 @Component({
   selector: 'app-left-side-section',
   imports: [
+    RouterModule,
     ReferenceSectionComponent,
+    CommonModule,
+    RegisterComponent,
+    LoginComponent,
     NgFor,
     NgIf,
-    FormsModule ],
+    FormsModule
+  ],
   templateUrl: './left-side-section.component.html',
   standalone: true,
   styleUrl: './left-side-section.component.scss'
 })
-export class LeftSideSectionComponent {
+export class LeftSideSectionComponent implements OnInit{
   //директиви *ngIf
   showContact = true;
 
@@ -44,7 +54,9 @@ export class LeftSideSectionComponent {
   }
 
 //NgForm
-  constructor(private resumeService: ResumeService) {
+  constructor(
+    private resumeService: ResumeService,
+    private router: Router) {
     this.loadContacts();
   }
 
@@ -75,5 +87,34 @@ export class LeftSideSectionComponent {
       this.contacts = this.contacts.filter(c => c.id !== id);
     });
   }
+
+  authState = false;
+
+  ngOnInit() {
+    this.authState = localStorage.getItem('auth') === 'true';
+  }
+
+  // isAuthenticated(): boolean {
+  //   return localStorage.getItem('auth') === 'true';
+  // }
+  logout() {
+    localStorage.removeItem('auth');
+    this.authState = false;
+    this.router.navigate(['/']);
+  }
+
+  showLogin = false;
+  showRegister = false;
+
+  onLoginSuccess() {
+    this.authState = true;
+    this.closeModals();
+  }
+
+  closeModals() {
+    this.showLogin = false;
+    this.showRegister = false;
+  }
+
 }
 

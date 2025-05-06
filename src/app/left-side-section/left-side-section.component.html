@@ -8,6 +8,30 @@
   <p class="title">UX Designer</p>
 </div>
 <div class ="under_header">
+<!--  <button *ngIf="!authState" routerLink="/login" class="custom-btn">LogIn</button>-->
+<!--  <button *ngIf="!authState" routerLink="/register" class="custom-btn">Register</button>-->
+<!--  <button (click)="logout()" class="custom-btn">LogOut</button>-->
+<!--&lt;!&ndash;  <router-outlet></router-outlet>&ndash;&gt;-->
+<!--  <p>new button!</p>-->
+  <button *ngIf="!authState" (click)="showLogin = true" class="custom-btn">LogIn</button>
+  <button *ngIf="!authState" (click)="showRegister = true" class="custom-btn">Register</button>
+  <button *ngIf="authState" (click)="logout()" class="custom-btn">LogOut</button>
+<!--  <button (click)="showRegister = true">Зареєструватися</button>-->
+
+  <div *ngIf="showRegister" class="modal-backdrop">
+    <div>
+      <app-auth-register (registerSuccess)="showRegister = false"></app-auth-register>
+      <button (click)="showRegister = false" class="custom-btn">Close window</button>
+    </div>
+  </div>
+
+  <div *ngIf="showLogin" class="modal-backdrop">
+    <div>
+      <app-login (loginSuccess)="onLoginSuccess()"></app-login>
+      <button (click)="closeModals()" class="custom-btn">Close window</button>
+    </div>
+  </div>
+
   <div class="contact-container">
     <div class="contact-left">
       <h2 class="subtitle1"><strong>Contact</strong></h2>

@@ -15,4 +15,10 @@ import {RightSideSectionComponent} from './right-side-section/right-side-section
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  //
+  // logout() {
+  //   localStorage.removeItem('auth');
+  //   window.location.href = '/login';
+  // }
+
 }
