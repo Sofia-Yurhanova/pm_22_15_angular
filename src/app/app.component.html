@@ -1,16 +1,37 @@
-<!--<h1>Hello, title </h1>
-<p>Congratulations! Your app is running. </p>
-<img src="/pic/IMG.jpg" alt="dog" class="image">-->
+<div *ngIf="!isAuthenticated"  class="custom-wall">
+  <p class="custom-title">Welcome on my website! Please log in or register</p>
+<button *ngIf="!authState" (click)="showLogin = true" routerLink="/login" class="custom-btn">LogIn</button>
+<button *ngIf="!authState" (click)="showRegister = true"  routerLink="/register" class="custom-btn">Register</button>
 
-<div class="container">
-<!--  <button (click)="logout()" class="custom-btn">LogOut</button>-->
+  <div *ngIf="showRegister" class="modal-backdrop">
+    <div>
+      <app-register (registerSuccess)="showRegister = false"></app-register>
+      <button (click)="showRegister = false" class="custom-btn">Close window</button>
+    </div>
+  </div>
+
+  <div *ngIf="showLogin" class="modal-backdrop">
+    <div>
+      <app-login (loginSuccess)="onLoginSuccess()"></app-login>
+      <button (click)="closeModals()" class="custom-btn">Close window</button>
+    </div>
+  </div>
+
+<!--  <app-login (loginSuccess)="onLoginSuccess()"></app-login>-->
+<!--  <app-auth-register (registerSuccess)="onLoginSuccess()"></app-auth-register>-->
+
+</div>
+
+<div *ngIf="isAuthenticated" class="container">
+<!--  <div class="container">-->
+
+  <button (click)="logout()" class="custom-btn">LogOut</button>
 
   <div class="row resume">
     <div class="col-5 left-col">
     <app-left-side-section></app-left-side-section>
     </div>
     <div class="col-7" >
-
       <div class="right-col">
         <div class="row">
         <app-photo-and-about></app-photo-and-about>
@@ -18,9 +39,7 @@
         <div class="row">
           <app-right-side-section></app-right-side-section>
         </div>
-
       </div>
-
     </div>
   </div>
 </div>

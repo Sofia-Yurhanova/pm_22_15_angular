@@ -5,12 +5,8 @@ import { RightSideSectionComponent } from './right-side-section/right-side-secti
 import { AuthGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'about', pathMatch: 'full' },
-  { path: 'about', component: PhotoAndAboutComponent },
-  { path: 'left', component: LeftSideSectionComponent },
-  { path: 'right', component: RightSideSectionComponent },
-  {
-    path: 'admin',
+  { path: '', redirectTo: 'admin', pathMatch: 'full' },
+  {path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     canActivate: [AuthGuard] // захищено
   },
@@ -19,6 +15,10 @@ export const routes: Routes = [
   },
   {
     path: 'register',
-    loadComponent: () => import('./auth/register/register.component').then(m => m.RegisterComponent)
-  }
+    loadComponent: () => import('./auth/register.component').then(m => m.RegisterComponent)
+  },
+  /*{ path: 'about', component: PhotoAndAboutComponent },
+  { path: 'left', component: LeftSideSectionComponent },
+  { path: 'right', component: RightSideSectionComponent },*/
+
 ];

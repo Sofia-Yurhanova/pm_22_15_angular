@@ -1,4 +1,5 @@
 $light-grey: darkslategray;
+$white: #ffffff;
 
 @mixin col($wid){
   display: flex;
@@ -42,3 +43,9 @@ $light-grey: darkslategray;
   background-color: $light-grey;
 }
 
+.custom-title {
+  background-color: $light-grey;
+  color: white;
+  padding: 1% 2% 1% 2%;
+  font-size: 35px;
+}

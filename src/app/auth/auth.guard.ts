@@ -7,9 +7,20 @@ export class AuthGuard implements CanActivate {
 
   canActivate(): boolean {
     const isAuth = localStorage.getItem('auth') === 'true';
-    if (!isAuth) {
+    const role = localStorage.getItem('role');
+
+    // console.log(isAuth)
+    console.log('AuthGuard check → isAuth:', isAuth, 'role:', role);
+    // if (!isAuth) {
+    //   this.router.navigate(['/login']);
+    // }
+    // return isAuth;
+
+    if (isAuth && role === 'admin') {
+      return true;
+    } else {
       this.router.navigate(['/login']);
+      return false;
     }
-    return isAuth;
   }
 }

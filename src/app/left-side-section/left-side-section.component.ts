@@ -7,7 +7,7 @@ import { ResumeService } from '../resume.service';
 import {ReferenceSectionComponent} from './reference-section/reference-section.component';
 import { OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { RegisterComponent } from '../auth/register/register.component';
+import { RegisterComponent } from '../auth/register.component';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from '../auth/login.component';
 
@@ -92,28 +92,6 @@ export class LeftSideSectionComponent implements OnInit{
 
   ngOnInit() {
     this.authState = localStorage.getItem('auth') === 'true';
-  }
-
-  // isAuthenticated(): boolean {
-  //   return localStorage.getItem('auth') === 'true';
-  // }
-  logout() {
-    localStorage.removeItem('auth');
-    this.authState = false;
-    this.router.navigate(['/']);
-  }
-
-  showLogin = false;
-  showRegister = false;
-
-  onLoginSuccess() {
-    this.authState = true;
-    this.closeModals();
-  }
-
-  closeModals() {
-    this.showLogin = false;
-    this.showRegister = false;
   }
 
 }

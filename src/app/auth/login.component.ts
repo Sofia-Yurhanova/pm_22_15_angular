@@ -15,32 +15,8 @@ import { Router } from '@angular/router';
       <input [(ngModel)]="password" placeholder="Password" type="password">
       <button (click)="login()" class="custom-btn">Okey</button>
     </div>
-
   `,
-  styles: [`
-    .custom-wall{
-      background-color: #ffffff;
-
-    }
-    .custom-btn {
-      background-color: darkslategray;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      //border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .custom-title {
-      background-color: darkslategray;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 35px;
-    }
-  `]
+  styleUrls: ['./log-reg.component.scss']
 })
 export class LoginComponent {
   username = '';
