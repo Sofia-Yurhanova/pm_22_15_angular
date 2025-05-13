@@ -6,6 +6,7 @@ import { LoginComponent } from './auth/login.component';
 import { RegisterComponent } from './auth/register.component';
 import { CommonModule } from '@angular/common';
 import {Router, RouterLink} from '@angular/router';
+import {AdminComponent} from './admin/admin.component';
 
 @Component({
   selector: 'app-root',
@@ -18,33 +19,41 @@ import {Router, RouterLink} from '@angular/router';
     RightSideSectionComponent,
     LoginComponent,
     RegisterComponent,
-    RouterLink
+    RouterLink,
+    AdminComponent
   ],
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   isAuthenticated = false;
+  username = '';
+  role = '';
+  showLogin = false;
+  showRegister = false;
+  authState = false;
 
   logout() {
     this.isAuthenticated = false;
     localStorage.removeItem('auth');
+    localStorage.removeItem('role');
+    this.router.navigate(['/login']);
   }
 
-  // logout() {
-  //   localStorage.removeItem('auth');
-  //   this.authState = false;
-  //   this.router.navigate(['/']);
-  // }
-
-  // ngOnInit() {
-  //   const auth = localStorage.getItem('auth');
-  //   this.isAuthenticated = auth === 'true';
-  // }
-
   constructor(private router: Router) {}
+
   ngOnInit() {
+    const storedUsers = JSON.parse(localStorage.getItem('users') || '[]');
+    const hasAdmin = storedUsers.some((u: any) => u.username === 'admin');
+
+    if (!hasAdmin) {
+      storedUsers.push({ username: 'admin', password: '1234', role: 'admin' });
+      localStorage.setItem('users', JSON.stringify(storedUsers));
+    }
+
     const auth = localStorage.getItem('auth') === 'true';
     this.isAuthenticated = auth;
+    this.username = localStorage.getItem('username') || '';
+    this.role = localStorage.getItem('role') || '';
 
     if (auth) {
       this.router.navigate(['/admin']);
@@ -55,7 +64,8 @@ export class AppComponent {
 
   onLoginSuccess() {
     this.isAuthenticated = true;
-    //this.authState = true;
+    this.role = localStorage.getItem('role') || '';
+    this.username = localStorage.getItem('username') || '';
     this.closeModals();
   }
 
@@ -63,9 +73,5 @@ export class AppComponent {
     this.showLogin = false;
     this.showRegister = false;
   }
-  showLogin = false;
-  showRegister = false;
-
-  authState = false;
 
 }

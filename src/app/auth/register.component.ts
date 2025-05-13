@@ -31,8 +31,25 @@ export class RegisterComponent {
   register() {
     if (this.username && this.password) {
       const users = JSON.parse(localStorage.getItem('users') || '[]');
-      users.push({ username: this.username, password: this.password });
+      const existing = users.find((u: any) => u.username === this.username);
+
+      if (existing) {
+        alert('Такий користувач вже існує');
+        return;
+      }
+
+      const newUser = {
+        username: this.username,
+        password: this.password,
+        role: 'user'
+      };
+
+      users.push(newUser);
       localStorage.setItem('users', JSON.stringify(users));
+
+      localStorage.setItem('auth', 'true');
+      localStorage.setItem('username', newUser.username);
+      localStorage.setItem('role', newUser.role);
       alert('Register is successfull');
       this.registerSuccess.emit();
     } else {

@@ -26,6 +26,11 @@
 <!--  <div class="container">-->
 
   <button (click)="logout()" class="custom-btn">LogOut</button>
+  <header *ngIf="isAuthenticated">
+    <p>Welcome, {{ username }}!</p>
+    <p *ngIf="role === 'admin'">Admin Panel</p>
+  </header>
+  <app-admin *ngIf="isAuthenticated && role === 'admin'"></app-admin>
 
   <div class="row resume">
     <div class="col-5 left-col">

@@ -34,9 +34,10 @@ export class LoginComponent {
 
     if (found) {
       localStorage.setItem('auth', 'true');
+      localStorage.setItem('username', found.username);
+      localStorage.setItem('role', found.role);
       this.loginSuccess.emit();
-    } else {
-      alert('Incorrect data');
+      this.router.navigate(['/admin']);
     }
   }
 
